@@ -1,0 +1,21 @@
+.catalog{
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    width: inherit;
+    height: inherit;
+    
+}
+.catHeader h3{
+    font-style:oblique ;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size:xx-large;
+    text-shadow: 1px 1px rgb(121, 31, 206);
+}
+.catalog .productBox{
+    display: flex;
+    margin-bottom: 5px;
+    flex-direction: row;
+}

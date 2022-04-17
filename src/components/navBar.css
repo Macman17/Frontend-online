@@ -1,0 +1,11 @@
+.navbar{
+    background-color: rgb(97, 5, 184);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px black;
+}
+
+.navbar h1{
+    text-align: center;
+    color: pink;
+}
