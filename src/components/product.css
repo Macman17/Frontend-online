@@ -22,7 +22,7 @@
     
 }
 .product .prices{
-    display: inline-block; 
+    display: inline-flex; 
     flex-direction: column ;
     justify-content: space-between;
     font-size: larger;
@@ -50,17 +50,10 @@
     background-color: rgb(88, 11, 160);
     color: white;
     font-weight: 700;
-    text-shadow: 1px 1px black;
     padding-left: 2px;
     padding-right: 2px;
 
 }
 .product button:hover{
     background-color: black;
-}
-.product .product-info{
-display: inline-block;
-justify-content: space-around;
-
-    
 }
