@@ -7,6 +7,7 @@ import Catalog from './components/catalog';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import About from './components/about';
+import Todo from './components/toDo';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
  
       <Catalog></Catalog>
       <About></About>
+      <Todo></Todo>
       <Footer></Footer>
     </div>
     
