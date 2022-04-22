@@ -5,7 +5,7 @@ import QuantityPicker from "./quantityPicker";
 const TodoItem = (props) => {
     return (
         <div className="todo-item">
-            {props.content}
+            <label>{props.content}</label>
             <QuantityPicker></QuantityPicker>
         </div>
         );
