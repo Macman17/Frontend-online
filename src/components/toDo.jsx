@@ -23,13 +23,13 @@ const Todo = () => {
         
             <div className="form">
                 <input onChange={handleTextChange}  placeholder="Add to Shopping list" type="text"></input>
-                <button onclick={handleAddItem} className="btn btn-sm btn-primary">Add</button>
+                <button onClick={handleAddItem} className="btn btn-sm btn-primary">Add</button>
             </div>
 
             <div className="list">
                 <h6> There are {shoppingList.length} in your shopping cart</h6>
                 
-                    {shoppingList.map((t, index ) => ( <TodoItem key={index} conent={t}></TodoItem>))};
+                    {shoppingList.map((t, index ) => ( <TodoItem key={index} content={t}></TodoItem>))}
                     
                 
 

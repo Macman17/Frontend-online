@@ -1,0 +1,12 @@
+.todo-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border:  2px solid rgb(61, 60, 60);
+    margin-top: 5px;
+}
+.todo-item label{
+    margin-right: 5px;
+    font-weight: 600;
+    font-size: larger;
+}
