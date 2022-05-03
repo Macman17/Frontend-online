@@ -1,0 +1,38 @@
+.home img{
+    width: 98%;
+    height: 500px;
+    align-items: right;
+    margin-left: 10px;
+    margin-top: 2px;
+    
+
+}
+.home .cookies{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    font-weight: 700;
+
+    top: 225px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.cookies img{
+    width: 250px;
+    height: 150px;
+}
+.home .cookies button{
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(245, 233, 237, 0.822);
+    font-weight: 700;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.home .cookies button:hover{
+    background-color: rgb(92, 92, 90);
+}
+button{
+    text-align: center;
+}

@@ -5,7 +5,7 @@ let mockCatalog = [
         title: "Chocolate Chip",
         category: "1",
         unitPrice: 3.44,
-        image: "pic1.jpg"
+        image: "img6.jpg"
     },
     {
         _id: "65464",

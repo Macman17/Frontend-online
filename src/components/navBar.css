@@ -1,11 +1,15 @@
 .navbar{
-    background-color: rgb(97, 5, 184);
+    background-color: #ffffff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 1px;
-    text-shadow: 2px 2px black;
+    border: .05px solid black;
+    margin-left: 20px;
+    
+
 }
 
-.navbar h1{
-    text-align: center;
-    color: pink;
+
+img{
+    width: 60px;
+    height: 40px;
 }

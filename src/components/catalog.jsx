@@ -19,7 +19,7 @@ const Catalog = () => {
     return (
         <div className="catalog">
            <div className="catHeader">
-               <h3>Quikee's Cookies</h3>
+               <img src="/images/img4.png" />
                <h4>Check out our {products.length} products!</h4>
             
            </div>

@@ -1,18 +1,19 @@
 .product{
-    border: 1px solid black;
-    box-shadow: 1px 1px 1px rgb(71, 2, 117);
+    
+    margin-left: 1rem;
     margin-bottom: 1rem;
     border-radius: 6px;
     width: 255px;
-    height: 500px;
+    height: 485px;
     margin-right: 10px;
-    margin-top: 10px;
-    background-color: rgb(242, 231, 252);
+    
+    background-color: rgba(119, 119, 119, 0.452);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
 .product h3{
     font-family:fantasy;
-    text-shadow: 1px 1px rgb(121, 31, 206);
+    
 }
 
 .product img{
@@ -39,7 +40,7 @@
     text-shadow: 1px 1px rgb(255, 255, 255);
 }
 .product .total span{
-    color: rgb(80, 80, 80);
+    color: rgb(37, 37, 37);
 }
 .product .qp{
     margin-bottom: 5px;
@@ -47,11 +48,12 @@
 .product button{
     border-radius: 7px;
     margin-top: 5px;
-    background-color: rgb(88, 11, 160);
+    background-color: rgb(6, 2, 10);
     color: white;
-    font-weight: 700;
+    font-weight: 500;
     padding-left: 2px;
     padding-right: 2px;
+    font-family: fantasy;
 
 }
 .product button:hover{

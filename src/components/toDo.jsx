@@ -16,6 +16,8 @@ const Todo = () => {
         let  copy = [...shoppingList];
         copy.push(text);
         setShoppingList(copy);
+
+        
     };
     return (
         <div className="todo">
