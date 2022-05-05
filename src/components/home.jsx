@@ -1,4 +1,5 @@
 import "./home.css";
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -15,6 +16,10 @@ const Home = () => {
                 </div>
                 <img src="/images/pic6.jpg"  alt="cookies" />
             </div> 
+
+            <div>
+                <Link className="btn btn-lg btn-primary" to="/catalog"></Link>
+            </div>
             
         </div>
     );
