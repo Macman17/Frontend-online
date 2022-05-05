@@ -13,6 +13,7 @@ const Catalog = () => {
         setProducts(prods);
     };
     useEffect(() => {
+        //Catalog loading
         loadCatalog();
     }, []);
 
@@ -20,6 +21,7 @@ const Catalog = () => {
         <div className="catalog">
            <div className="catHeader">
                <img src="/images/img4.png" />
+            
                <h4>Check out our {products.length} products!</h4>
             
            </div>
