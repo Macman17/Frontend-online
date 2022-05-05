@@ -4,9 +4,9 @@ import "./admin.css";
 
 const Admin = () => {
     const[coupon, setCoupon] = useState({});
-
     const[product, setProduct] = useState({});
-
+    const[errorVisible, setErrorVisible] = useState(false);
+    const[errorMessage, setErrorMessage] = useState("");
 
     const handleTextChange = (e) => {
         let  copy = {...product};
@@ -18,6 +18,12 @@ const Admin = () => {
         
     };
 
+    const showError = (text) => {
+        setErrorMessage(text);
+        setErrorVisible(true);
+        
+    }
+
     const handleItemAdd = () => {
         console.log(product);if(0){
             //never
@@ -25,24 +31,25 @@ const Admin = () => {
         }
 
         if (product.title.length < 4 ) {
-            alert("Error, title must have aleast 4 charaters");
+            showError("Error, title must have aleast 4 charaters");
             return;
         }
         if (!product.category) {
-            alert("Error, Category must be filled in");
+            showError("Error, Category must be filled in");
             return;
         }
         if (!product.image) {
-            alert("Error, image must be filled in");
+            showError("Error, image must be filled in");
             return;
         }
         let savedProduct = {...product};
         savedProduct.price = parseFloat(product.price);
 
         if(!savedProduct.price || savedProduct.price < 1){
-            alert("Error, Price must be at least $1");
+            showError("Error, Price must be at least $1");
         }
            
+        setErrorVisible(false);
     };
 
     const handleCodeChange = (e) => {
@@ -65,14 +72,16 @@ const Admin = () => {
         couponSave.discount = parseFloat(couponSave.discount);
             //Validation
         if (!coupon.discount || coupon.discount > 35) {
-            alert("Error, discount can not be greater than 35% or you must add your discount amount");
+            showError("Error, discount can not be greater than 35% or you must add your discount amount");
             return;
         }
 
         if(couponSave.code.length < 5){
-            alert("Error, Must be at least 5 charaters");
+            showError("Error, Must be at least 5 charaters");
             return;
         }
+
+        setErrorVisible(false);
         //send to server
         console.log("Saving coupon");
     }
@@ -81,6 +90,9 @@ const Admin = () => {
 
     return(
         <div className="admin-page">
+
+           {errorVisible ? <div className="alert alert-danger">{errorMessage}</div> : null }
+
             <div className="sections-container">
                 <section className="section-products">
                     <h4>Mange Products</h4>
