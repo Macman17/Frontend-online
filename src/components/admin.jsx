@@ -59,8 +59,6 @@ const Admin = () => {
         setCoupon(copy);
 
         console.log();
-
-        
         
     };
 

@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import "./navBar.css";
+import { useContext } from "react";
+import store from "../context/storeContext";
+import Product from "./product";
+import Cart from "./cart";
 
 const Navbar = () => {
+    const cart = useContext(store).cart;
     return (
-        <nav className="navbar navbar-expand-lg navbar-lightnpm">
+        <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/home"><img src="/images/img2.png" /></Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,8 +34,8 @@ const Navbar = () => {
               </li>
             </ul>
             <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success" type="submit">Search</button>
+            
+            <Link className="btn btn-outline-success"  to="/Cart">Cart:{cart.length} </Link>
             </form>
           </div>
         </div>
