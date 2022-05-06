@@ -1,0 +1,12 @@
+.cart .cart-Container { 
+    display:flex;
+
+}
+
+.cart .display-product {
+    flex: 3;
+}
+
+.cart .sidePanel {
+    flex: 1;
+}
