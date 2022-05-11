@@ -14,10 +14,10 @@ const Home = () => {
                     <img src="/images/img4.png" />
                     <button>Create Your Own Cookie Dough</button>
                     <h3>OR</h3>
-                    <Link className="btn btn-lg btn-primary" to="/catalog">Check out our Catalog</Link>
+                    <Link className="cookies-link" to="/catalog">Check out our Catalog</Link>
                 </div>
             </div>
-                <img src="/images/pic6.jpg"  alt="cookies" />     
+                  
         </div>
     );
 
