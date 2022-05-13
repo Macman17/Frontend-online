@@ -26,9 +26,9 @@ const Product = (props) => {
             <div className="product-info">
                 <h3>{props.info.title}</h3>
                 <div className="prices">
-                    <label className="price"><span>Unit Price:</span>$ {props.info.unitPrice.toFixed(2)}
+                    <label className="price"><span>Unit Price:</span>$ {+props.info.unitPrice.toFixed(2)}
                     </label>
-                    <label className="total"><span>Total:</span>$ {(props.info.unitPrice * quantity).toFixed(2)}
+                    <label className="total"><span>Total:</span>$ {(+props.info.unitPrice * quantity).toFixed(2)}
                     </label>
                 </div>
                 <div className="qp">

@@ -20,6 +20,7 @@
     margin-bottom: 5px;
     
     flex-direction: row;
+    justify-content: space-around;
 }
 .catHeader img{
     width: 250px;

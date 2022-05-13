@@ -1,13 +1,16 @@
 import { useState } from "react";
 import "./admin.css";
 
+import DataService from "../services/dataService";
+import { useEffect } from "react";
+
 
 const Admin = () => {
     const[coupon, setCoupon] = useState({});
     const[product, setProduct] = useState({});
     const[errorVisible, setErrorVisible] = useState(false);
     const[errorMessage, setErrorMessage] = useState("");
-
+    const [viewCoupons, setViewCoupons] = useState([]);
     const handleTextChange = (e) => {
         let  copy = {...product};
 
@@ -51,6 +54,18 @@ const Admin = () => {
            
         setErrorVisible(false);
     };
+    const loadCoupon = async () =>{
+        const service = new DataService();
+        let prods = await service.getCoupons();
+        setViewCoupons(prods);
+        console.log("retr", prods);
+        
+    };
+    useEffect(() => {
+        //Catalog loading
+        loadCoupon();
+    }, []);
+
 
     const handleCodeChange = (e) => {
         let  copy = {...coupon};
@@ -137,6 +152,11 @@ const Admin = () => {
                             <div className="my-control">
                                 <button onClick={handleCodeAdd}  className="btn btn-dark">Apply Coupon</button>
                             </div>
+                        </div>
+                        <div className="coupons">
+                            <ul>
+                                {viewCoupons.map((prods) =>( <li key={prods._id}>{prods.code} {prods.discount}</li>))};
+                            </ul>
                         </div>
                 </section>
             </div>
