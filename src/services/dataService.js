@@ -45,8 +45,8 @@ class DataService {
        return response.data;
     }
     async getCoupons(){    //return mockCatalog;
-       let getCoupon = await axios.get("http://127.0.0.1:5000/api/couponCodes");
-       console.log("Retrieved", getCoupon.data);
+       let getCoupon = await axios.get("http://127.0.0.1:5000/api/couponCode");
+       
        return getCoupon.data;
     }
 };

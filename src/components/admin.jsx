@@ -1,8 +1,8 @@
-import { useState } from "react";
-import "./admin.css";
 
+import "./admin.css";
+import { useEffect, useState } from "react";
 import DataService from "../services/dataService";
-import { useEffect } from "react";
+
 
 
 const Admin = () => {
@@ -54,17 +54,19 @@ const Admin = () => {
            
         setErrorVisible(false);
     };
-    const loadCoupon = async () =>{
-        const service = new DataService();
-        let prods = await service.getCoupons();
-        setViewCoupons(prods);
-        console.log("retr", prods);
-        
-    };
     useEffect(() => {
         //Catalog loading
-        loadCoupon();
+        loadCoupons();
     }, []);
+
+    const loadCoupons = async () =>{
+        const service = new DataService();
+        let coupon = await service.getCoupons();
+        setViewCoupons(coupon);
+        
+        
+    };
+    
 
 
     const handleCodeChange = (e) => {
@@ -86,7 +88,7 @@ const Admin = () => {
             //Validation
         if (!coupon.discount || coupon.discount > 35) {
             showError("Error, discount can not be greater than 35% or you must add your discount amount");
-            return;
+            return
         }
 
         if(couponSave.code.length < 5){
@@ -155,7 +157,10 @@ const Admin = () => {
                         </div>
                         <div className="coupons">
                             <ul>
-                                {viewCoupons.map((prods) =>( <li key={prods._id}>{prods.code} {prods.discount}</li>))};
+                                {viewCoupons.map((coupon) => ( 
+                                    <li key={coupon._id}>
+                                        {coupon.code}-{coupon.discount}
+                                    </li>))}
                             </ul>
                         </div>
                 </section>
