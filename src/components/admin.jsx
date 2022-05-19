@@ -8,16 +8,19 @@ import DataService from "../services/dataService";
 const Admin = () => {
     const[coupon, setCoupon] = useState({});
     const[product, setProduct] = useState({});
+    const [allCoupons, setAllCoupons] = useState({});
     const[errorVisible, setErrorVisible] = useState(false);
     const[errorMessage, setErrorMessage] = useState("");
     const [viewCoupons, setViewCoupons] = useState([]);
+    const [viewProduct, setViewProduct] = useState([]);
+
     const handleTextChange = (e) => {
         let  copy = {...product};
 
         copy[e.target.name] = e.target.value;
         setProduct(copy);
 
-        console.log()
+       
         
     };
 
@@ -27,8 +30,8 @@ const Admin = () => {
         
     }
 
-    const handleItemAdd = () => {
-        console.log(product);if(0){
+    const handleItemAdd = async () => {
+        if(0){
             //never
             return;
         }
@@ -53,9 +56,20 @@ const Admin = () => {
         }
            
         setErrorVisible(false);
+
+        //send product to server
+        let service = new DataService();
+        let res = await service.saveProduct(savedProduct);
+        
+        let copy = [...product];
+        copy.push(res);
+        setAllCoupons(copy);
     };
+    
+    
+    
     useEffect(() => {
-        //Catalog loading
+        loadProduct();//Catalog loading
         loadCoupons();
     }, []);
 
@@ -66,8 +80,14 @@ const Admin = () => {
         
         
     };
+    const loadProduct = async () =>{
+        const service = new DataService();
+        let prods = await service.getCatalog();
+        setViewProduct(prods);
+        
+        
+    };
     
-
 
     const handleCodeChange = (e) => {
         let  copy = {...coupon};
@@ -75,31 +95,40 @@ const Admin = () => {
         copy[e.target.name] = e.target.value;
         setCoupon(copy);
 
-        console.log();
+        
         
     };
 
     
-    const handleCodeAdd = () => {
-        console.log(coupon);
+    const handleCodeAdd = async () => {
+        
 
-        let couponSave = {...coupon};
-        couponSave.discount = parseFloat(couponSave.discount);
+        let couponSaved = {...coupon};
+        couponSaved.discount = parseFloat(couponSaved.discount);
             //Validation
         if (!coupon.discount || coupon.discount > 35) {
             showError("Error, discount can not be greater than 35% or you must add your discount amount");
             return
         }
 
-        if(couponSave.code.length < 5){
+        if(couponSaved.code.length < 5){
             showError("Error, Must be at least 5 charaters");
             return;
         }
 
         setErrorVisible(false);
         //send to server
-        console.log("Saving coupon");
-    }
+        
+        let service = new DataService();
+        let res = await service.saveCoupon(couponSaved);
+        
+        
+        let copy = [...allCoupons];
+        copy.push(res);
+        setAllCoupons(copy);
+        
+        
+    };
 
 
 
@@ -135,6 +164,15 @@ const Admin = () => {
                             <div className="my-control">
                                 <button onClick={handleItemAdd}  className="btn btn-dark">Register Product</button>
                             </div>
+                            
+                        </div>
+                        <div className="coupons">
+                            <ul>
+                                {viewProduct.map((prods) => ( 
+                                    <li key={prods._id}>
+                                        {prods.title}-{prods.unitPrice}
+                                    </li>))}
+                            </ul>
                         </div>
                 </section>
 
@@ -143,7 +181,7 @@ const Admin = () => {
                         <div className="coupon-form">
                         <div className="my-control">
                                 <label>Code:</label>
-                                <input onChange={handleCodeChange} name="code" type="number"   />
+                                <input onChange={handleCodeChange} name="code" type="text" />
                             </div>
 
                             <div className="my-control">

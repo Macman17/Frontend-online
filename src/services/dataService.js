@@ -49,6 +49,15 @@ class DataService {
        
        return getCoupon.data;
     }
+    async saveCoupon(coupon){    //return mockCatalog;
+        let response = await axios.post("http://127.0.0.1:5000/api/couponCode", coupon);
+        return response.data;
+    }
+    async saveProduct(product){    //return mockCatalog;
+        let response = await axios.post("http://127.0.0.1:5000/api/catalog", product);
+        return response.data;
+    }
+    
 };
 
 export default DataService;
